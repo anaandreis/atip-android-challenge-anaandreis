@@ -28,7 +28,7 @@ fun ListingScreen(
             when (state) {
                 is ListingState.Uninitialized -> {}
                 is ListingState.Error -> TODO()
-                is ListingState.Loading -> TODO()
+                is ListingState.Loading -> ListingLoading(state)
                 is ListingState.Success -> Listing(state, onAction)
             }
         }
