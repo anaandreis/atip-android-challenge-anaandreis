@@ -1,6 +1,6 @@
 package com.olxbr.android.challenge.listing.data
 
-import com.olxbr.android.challenge.listing.domain.model.Ad
+import com.olxbr.android.challenge.listing.model.Ad
 
 val localAds = listOf(
     Ad(

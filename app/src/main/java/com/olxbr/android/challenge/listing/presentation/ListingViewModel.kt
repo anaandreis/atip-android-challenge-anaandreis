@@ -3,7 +3,7 @@ package com.olxbr.android.challenge.listing.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.olxbr.android.challenge.listing.domain.model.Ad
+import com.olxbr.android.challenge.listing.model.Ad
 import com.olxbr.android.challenge.listing.data.ListingService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

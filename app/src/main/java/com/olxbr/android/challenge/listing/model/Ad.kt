@@ -1,4 +1,4 @@
-package com.olxbr.android.challenge.listing.domain.model
+package com.olxbr.android.challenge.listing.model
 
 data class Ad(
 
