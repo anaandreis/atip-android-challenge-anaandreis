@@ -1,4 +1,4 @@
-package com.olxbr.android.challenge.listing.data
+package com.olxbr.android.challenge.listing.data.remote
 
 import com.olxbr.android.challenge.listing.model.Ad
 import kotlinx.coroutines.Dispatchers
@@ -8,7 +8,7 @@ class ListingService {
 
     suspend fun getAds(): List<Ad> {
         return withContext(Dispatchers.IO) {
-            localAds
+            RetrofitInstance.api.getAds()
         }
     }
 }

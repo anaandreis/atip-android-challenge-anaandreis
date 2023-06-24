@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.olxbr.android.challenge.listing.model.Ad
-import com.olxbr.android.challenge.listing.data.ListingService
+import com.olxbr.android.challenge.listing.data.remote.ListingService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,7 +1,7 @@
 package com.olxbr.android.challenge
 
 import app.cash.turbine.test
-import com.olxbr.android.challenge.listing.data.ListingService
+import com.olxbr.android.challenge.listing.data.remote.ListingService
 import com.olxbr.android.challenge.listing.presentation.ListingAction
 import com.olxbr.android.challenge.listing.presentation.ListingState
 import com.olxbr.android.challenge.listing.presentation.ListingViewModel
