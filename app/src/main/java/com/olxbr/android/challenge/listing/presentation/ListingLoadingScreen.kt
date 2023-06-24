@@ -22,7 +22,7 @@ import com.olxbr.android.challenge.ui.theme.Purple40
 import com.olxbr.android.challenge.ui.theme.cardGray
 
 @Composable
-fun ListingLoading(state: ListingState.Loading) {
+fun ListingLoadingScreen(state: ListingState.Loading) {
 
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -73,5 +73,5 @@ fun ListingLoading(state: ListingState.Loading) {
 @Preview
 @Composable
 fun PreviewLoading() {
-    ListingLoading(state = ListingState.Loading(query = null))
+    ListingLoadingScreen(state = ListingState.Loading(query = null))
 }
