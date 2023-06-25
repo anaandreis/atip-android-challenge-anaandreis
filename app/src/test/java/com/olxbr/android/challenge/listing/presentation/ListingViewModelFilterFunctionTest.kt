@@ -1,6 +1,5 @@
 package com.olxbr.android.challenge
 
-
 import app.cash.turbine.test
 import com.olxbr.android.challenge.listing.data.remote.ListingService
 import com.olxbr.android.challenge.listing.model.Ad
@@ -109,5 +108,4 @@ class ListingViewModelFilterFunctionTest {
         }
     }
 }
-
 
