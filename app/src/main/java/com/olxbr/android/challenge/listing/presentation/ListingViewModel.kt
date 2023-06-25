@@ -66,13 +66,42 @@ class ListingViewModel(
 
     private fun filter(query: String) {
         viewModelScope.launch(dispatcher) {
-            val result =
-                service.getAds().filter { ad -> ad.subject.startsWith(query) }
-
+            val normalizedQuery = removeAccents(query)
+            val result = if (normalizedQuery.isEmpty()) {
+                service.getAds()
+            } else {
+                service.getAds().filter { ad ->
+                    val normalizedSubject = removeAccents(ad.subject)
+                    normalizedSubject.contains(normalizedQuery, ignoreCase = true)
+                }
+            }
             _state.update { ListingState.Success(result, query) }
         }
     }
+
+        private fun removeAccents(string: String): String {
+        val accentsMap = mapOf(
+            'ã' to 'a',
+            'á' to 'a',
+            'â' to 'a',
+            'õ' to 'o',
+            'ó' to 'o',
+            'ô' to 'o',
+            'é' to 'e',
+            'ê' to 'e',
+            'í' to 'i',
+            'ú' to 'u',
+        )
+
+        val stringBuilder = StringBuilder()
+        for (char in string) {
+            val unaccentedChar = accentsMap[char.lowercaseChar()] ?: char
+            stringBuilder.append(unaccentedChar)
+        }
+        return stringBuilder.toString()
+    }
 }
+
 
 class ListingViewModelFactory : ViewModelProvider.NewInstanceFactory() {
 
