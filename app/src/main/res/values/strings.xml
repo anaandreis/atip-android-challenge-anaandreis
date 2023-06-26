@@ -3,4 +3,9 @@
     <string name="io_error">"Falha ao carregar anúncios. Verifique sua conexão de internet."</string>
     <string name="json_parse_error">"Falha ao processar os dados dos anúncios. Tente novamente mais tarde."</string>
     <string name="generic_error">"Ocorreu um erro desconhecido. Tente novamente mais tarde."</string>
+
+    <string name="pesquisar">Pesquisar</string>
+    <string name="nenhum_resultado_encontrado">Nenhum resultado encontrado.</string>
+    <string name="tentar_novamente">Tentar Novamente</string>
+    <string name="carregando">Carregando anúncios, aguarde</string>
 </resources>

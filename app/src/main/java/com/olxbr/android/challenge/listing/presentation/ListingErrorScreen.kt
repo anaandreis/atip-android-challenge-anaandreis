@@ -22,6 +22,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.olxbr.android.challenge.R
 import com.olxbr.android.challenge.ui.theme.Purple40
 import com.olxbr.android.challenge.ui.theme.cardGray
 
@@ -76,7 +77,7 @@ fun ListingError(state: ListingState.Error, onAction: (ListingAction) -> Unit) {
                     )
 
                 ) {
-                        Text(text = "Tentar Novamente",
+                        Text(text = stringResource(R.string.tentar_novamente),
                             fontSize = 16.sp)
                 }
             }

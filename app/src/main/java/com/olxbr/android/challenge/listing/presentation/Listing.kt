@@ -20,10 +20,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.olxbr.android.challenge.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,7 +51,7 @@ fun Listing(
             value = queryValue.value,
             onValueChange = { queryValue.value = it },
             leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-            label = { Text(text = "Pesquisar") },
+            label = { Text(text = stringResource(R.string.pesquisar)) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp),
@@ -73,7 +75,7 @@ fun Listing(
             if (state.ads.isEmpty()) {
                 item {
                     Text(
-                        text = "Nenhum resultado encontrado.",
+                        text = stringResource(R.string.nenhum_resultado_encontrado),
                         modifier = Modifier.fillMaxWidth().padding(16.dp),
                         textAlign = TextAlign.Center
                     )

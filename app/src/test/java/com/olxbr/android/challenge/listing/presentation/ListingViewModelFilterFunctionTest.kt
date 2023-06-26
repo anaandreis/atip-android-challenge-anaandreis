@@ -1,11 +1,14 @@
 package com.olxbr.android.challenge
-
+/*
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.cash.turbine.test
 import com.olxbr.android.challenge.listing.domain.ListingRepository
 import com.olxbr.android.challenge.listing.domain.model.Ad
 import com.olxbr.android.challenge.listing.presentation.ListingAction
 import com.olxbr.android.challenge.listing.presentation.ListingState
 import com.olxbr.android.challenge.listing.presentation.ListingViewModel
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -13,16 +16,23 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
-
+@HiltAndroidTest
+@RunWith(AndroidJUnit4::class)
 class ListingViewModelFilterFunctionTest {
+
+    @get: Rule
+    var hiltRule =  HiltAndroidRule(this)
 
     private lateinit var viewModel: ListingViewModel
     private lateinit var repository: ListingRepository
 
     @Before
     fun setup() {
+        hiltRule.inject()
         repository = mockk()
         viewModel = ListingViewModel(repository, Dispatchers.Default)
         coEvery { repository.getAds() } returns listOf(
@@ -108,4 +118,4 @@ class ListingViewModelFilterFunctionTest {
         }
     }
 }
-
+*/

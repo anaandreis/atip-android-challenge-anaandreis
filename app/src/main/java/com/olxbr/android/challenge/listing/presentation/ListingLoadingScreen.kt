@@ -15,9 +15,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.olxbr.android.challenge.R
 import com.olxbr.android.challenge.ui.theme.Purple40
 import com.olxbr.android.challenge.ui.theme.cardGray
 
@@ -53,7 +55,7 @@ fun ListingLoadingScreen(state: ListingState.Loading) {
                     if(state.query == null) {
 
                     Text(
-                        "Carregando anúncios, aguarde",
+                        stringResource(R.string.carregando),
                         color = cardGray,
                         fontSize = 20.sp
                      )
