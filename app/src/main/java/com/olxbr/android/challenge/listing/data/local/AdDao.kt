@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.olxbr.android.challenge.listing.domain.model.Ad
 
-
 @Dao
 interface AdDao {
 

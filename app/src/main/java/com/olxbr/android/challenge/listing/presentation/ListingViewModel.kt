@@ -1,12 +1,12 @@
 package com.olxbr.android.challenge.listing.presentation
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.google.gson.JsonParseException
 import com.olxbr.android.challenge.R
 import com.olxbr.android.challenge.listing.domain.ListingRepository
 import com.olxbr.android.challenge.listing.domain.model.Ad
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import okio.IOException
+import javax.inject.Inject
 
 sealed class ListingState {
 
@@ -34,10 +35,12 @@ sealed class ListingAction {
     data class Filter(val query: String) : ListingAction()
 }
 
-class ListingViewModel(
+@HiltViewModel
+class ListingViewModel @Inject constructor(
     private val repository: ListingRepository,
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default
 ) : ViewModel() {
+
 
     private val _state = MutableStateFlow<ListingState>(ListingState.Uninitialized)
     val state: StateFlow<ListingState> = _state
