@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.google.gson.JsonParseException
 import com.olxbr.android.challenge.R
-import com.olxbr.android.challenge.listing.model.Ad
-import com.olxbr.android.challenge.listing.data.remote.ListingService
+import com.olxbr.android.challenge.listing.domain.ListingRepository
+import com.olxbr.android.challenge.listing.domain.model.Ad
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +35,7 @@ sealed class ListingAction {
 }
 
 class ListingViewModel(
-    private val service: ListingService,
+    private val repository: ListingRepository,
     private val dispatcher: CoroutineDispatcher = Dispatchers.Default
 ) : ViewModel() {
 
@@ -53,7 +53,7 @@ class ListingViewModel(
         viewModelScope.launch(dispatcher) {
             _state.update { ListingState.Loading() }
             try {
-                _state.update { ListingState.Success(service.getAds()) }
+                _state.update { ListingState.Success(repository.getAds()) }
             } catch (e: IOException) {
                 _state.update { ListingState.Error(R.string.io_error, R.drawable.ic_io_error_24) }
             } catch (e: JsonParseException) {
@@ -68,9 +68,9 @@ class ListingViewModel(
         viewModelScope.launch(dispatcher) {
             val normalizedQuery = removeAccents(query)
             val result = if (normalizedQuery.isEmpty()) {
-                service.getAds()
+                repository.getAds()
             } else {
-                service.getAds().filter { ad ->
+                repository.getAds().filter { ad ->
                     val normalizedSubject = removeAccents(ad.subject)
                     normalizedSubject.contains(normalizedQuery, ignoreCase = true)
                 }
@@ -102,9 +102,7 @@ class ListingViewModel(
     }
 }
 
+//class ListingViewModelFactory : ViewModelProvider.NewInstanceFactory() {
 
-class ListingViewModelFactory : ViewModelProvider.NewInstanceFactory() {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        ListingViewModel(ListingService()) as T
-}
+ //   override fun <T : ViewModel> create(modelClass: Class<T>): T =
+ //       ListingViewModel(ListingService()) as T }

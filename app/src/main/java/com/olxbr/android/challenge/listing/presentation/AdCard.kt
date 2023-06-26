@@ -29,8 +29,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.olxbr.android.challenge.R
-import com.olxbr.android.challenge.listing.data.LoadImageFromRemote
-import com.olxbr.android.challenge.listing.model.Ad
+import com.olxbr.android.challenge.listing.data.remote.LoadImageFromRemote
+import com.olxbr.android.challenge.listing.domain.model.Ad
 import com.olxbr.android.challenge.ui.theme.cardGray
 
 @Composable

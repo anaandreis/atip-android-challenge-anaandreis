@@ -1,8 +1,8 @@
 package com.olxbr.android.challenge
 
 import app.cash.turbine.test
-import com.olxbr.android.challenge.listing.data.remote.ListingService
-import com.olxbr.android.challenge.listing.model.Ad
+import com.olxbr.android.challenge.listing.domain.ListingRepository
+import com.olxbr.android.challenge.listing.domain.model.Ad
 import com.olxbr.android.challenge.listing.presentation.ListingAction
 import com.olxbr.android.challenge.listing.presentation.ListingState
 import com.olxbr.android.challenge.listing.presentation.ListingViewModel
@@ -19,13 +19,13 @@ import org.junit.Test
 class ListingViewModelFilterFunctionTest {
 
     private lateinit var viewModel: ListingViewModel
-    private lateinit var service: ListingService
+    private lateinit var repository: ListingRepository
 
     @Before
     fun setup() {
-        service = mockk()
-        viewModel = ListingViewModel(service, Dispatchers.Default)
-        coEvery { service.getAds() } returns listOf(
+        repository = mockk()
+        viewModel = ListingViewModel(repository, Dispatchers.Default)
+        coEvery { repository.getAds() } returns listOf(
             Ad("Image Url 1", "SOFÁ", "1", "Time", "Location1"),
             Ad("Image Url 2", "soFA", "2", "Time", "Location2"),
             Ad("Image Url 3", "2 sofás!", "3", "Time", "Location3"),

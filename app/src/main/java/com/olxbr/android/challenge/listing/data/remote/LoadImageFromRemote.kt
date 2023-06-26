@@ -1,4 +1,4 @@
-package com.olxbr.android.challenge.listing.data
+package com.olxbr.android.challenge.listing.data.remote
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -9,10 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
-import coil.compose.SubcomposeAsyncImage
+import coil.compose.*
 import com.olxbr.android.challenge.R
 
 @Composable
+
 fun LoadImageFromRemote(imageUrl: String, imageDescription: String?) {
     SubcomposeAsyncImage(
         model = imageUrl,

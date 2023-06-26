@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.olxbr.android.challenge.listing.model.Ad
+import com.olxbr.android.challenge.listing.domain.model.Ad
 
 
 @Database(entities = [Ad::class], version = 1)
